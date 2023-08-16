@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 
 const facultySchema = new mongoose.Schema({
+    faculty_id: {type: String,  unique: true},
+    password: { type: String, required: true },
     personalDetails: {
         firstName: { type: String, require: true },
         lastName: { type: String, require: true },
@@ -12,7 +14,6 @@ const facultySchema = new mongoose.Schema({
             {
                 qualificationType: { type: String, required: true },
                 degreeName: { type: String, required: true },
-                document: { type: File, required: true }
             }
         ], required: true}
     },
@@ -24,7 +25,7 @@ const facultySchema = new mongoose.Schema({
         email: { type: String, required: true },
         secondaryEmail: { type: String },
         phone: { type: String, required: true },
-        secondaryPhone: { type: String, required: true }
+        secondaryPhone: { type: String }
     }
 })
 

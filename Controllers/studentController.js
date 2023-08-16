@@ -1,11 +1,10 @@
 const StudentServices = require('../Services/studentServices')
 
 const getAllStudents = async(req, res) => {
-    const { semester, course } = req.body;
-    const studentResponse = await StudentServices.showAllStudents(semester, course);
+    const studentResponse = await StudentServices.showAllStudents();
     res.status(200).json({
         success: true,
-        message: `Listed all students of ${course} ${semester}.`,
+        message: `Listed all students.`,
         data: studentResponse
     })
 }
